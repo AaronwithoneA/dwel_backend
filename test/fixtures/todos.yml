@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: todos
+#
+#  id          :integer          not null, primary key
+#  group_id    :integer          not null
+#  body        :text             not null
+#  type        :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  description :string           not null
+#  resolved    :boolean
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group_id: 1
+  body: MyText
+  resolved: false
+  type: 
+
+two:
+  group_id: 1
+  body: MyText
+  resolved: false
+  type: 
