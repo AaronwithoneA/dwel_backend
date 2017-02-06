@@ -24,6 +24,6 @@ class Api::TodosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:description, :body, :category, :groupId)
+    params.require(:todo).permit(:description, :body, :category, :group_id)
   end
 end
