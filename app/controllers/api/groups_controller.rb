@@ -4,7 +4,7 @@ class Api::GroupsController < ApplicationController
       FROM groups
       JOIN memberships on groups.id = memberships.group_id
       JOIN users on users.id = memberships.user_id
-      WHERE users.id = #{User.first.id}")
+      WHERE users.id = 1")
   end
 
 
@@ -15,12 +15,8 @@ class Api::GroupsController < ApplicationController
   def create
     group = Group.new(group_params)
     if group.save
-      Membership.create({group_id: group.id, user_id: 1})
-      @groups = Group.find_by_sql("select groups.*
-        FROM groups
-        JOIN memberships on groups.id = memberships.group_id
-        JOIN users on users.id = memberships.user_id
-        WHERE users.id = #{User.first.id}")
+      Membership.create(group_id: group.id, user_id: current_user.id)
+      @groups = current_user.groups
       render :index
     else
       render json: @group.errors.full_messages, status: 422
