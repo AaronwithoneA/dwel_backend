@@ -4,7 +4,7 @@ class Api::GroupsController < ApplicationController
       FROM groups
       JOIN memberships on groups.id = memberships.group_id
       JOIN users on users.id = memberships.user_id
-      WHERE users.id = #{User.first.id}")
+      WHERE users.id = #{current_user.id}")
   end
 
 
@@ -20,7 +20,7 @@ class Api::GroupsController < ApplicationController
         FROM groups
         JOIN memberships on groups.id = memberships.group_id
         JOIN users on users.id = memberships.user_id
-        WHERE users.id = #{User.first.id}")
+        WHERE users.id = #{current_user.id}")
       render :index
     else
       render json: @group.errors.full_messages, status: 422
