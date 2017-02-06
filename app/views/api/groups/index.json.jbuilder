@@ -4,7 +4,7 @@ json.array! @groups do |group|
 
   json.todos do
     json.array! group.todos do |todo|
-      json.extract! todo, :description, :body, :category, :created_at,
+      json.extract! todo, :description, :body, :category, :created_at, :id,
         :updated_at, :resolved
       json.comments do
         json.array! todo.comments do |comment|
