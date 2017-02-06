@@ -13,7 +13,7 @@
 class Comment < ApplicationRecord
   validates :comment, :username, :todo_id, presence: true
 
-  belongs_to :user
+  # belongs_to :user
   belongs_to :todo
 
 end

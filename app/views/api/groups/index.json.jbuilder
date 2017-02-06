@@ -1,4 +1,5 @@
 json.array! @groups do |group|
+
   json.extract! group, :id, :token
   json.todos do
     json.array! group.todos do |todo|
@@ -6,7 +7,7 @@ json.array! @groups do |group|
         :updated_at, :resolved
       json.comments do
         json.array! todo.comments do |comment|
-          json.extract! comment, :user, :comment, :created_at
+          json.extract! comment, :username, :comment, :created_at
         end
       end
     end

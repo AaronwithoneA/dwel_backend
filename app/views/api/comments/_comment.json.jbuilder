@@ -1,1 +1,1 @@
-json.extract! comment, :comment
+json.extract! comment, :comment, :username
