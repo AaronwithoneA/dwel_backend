@@ -4,9 +4,10 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    debugger
+
     @comment = Comment.new(comment_params)
     if @comment.save
+      
       render "api/comments/show"
     else
       render json: @comment.errors.full_messages, status: 422
