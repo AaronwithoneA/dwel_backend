@@ -13,7 +13,7 @@
 #
 
 class Todo < ApplicationRecord
-  validates :group_id, :body, :description, :type, presence: true
+  validates :group_id, :body, :description, :category, presence: true
 
   belongs_to :group
   has_many :comments
