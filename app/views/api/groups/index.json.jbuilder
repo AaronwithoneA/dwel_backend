@@ -1,5 +1,5 @@
 json.array! @groups do |group|
-  json.extract! group, :id, :tenant, :landlord, :token
+  json.extract! group, :id, :token
   json.todos do
     json.array! group.todos do |todo|
       json.extract! todo, :description, :body, :category, :created_at,
